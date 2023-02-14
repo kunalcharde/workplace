@@ -1,10 +1,14 @@
+
 import './App.css';
-import Navbar from './Navbar';
+import NavRoutes from './Routers';
+import { UserContextProvider } from './Context/userContext';
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <UserContextProvider>
+      <NavRoutes/>
+      </UserContextProvider>
     </div>
   );
 }

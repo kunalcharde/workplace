@@ -18,9 +18,9 @@ import CandidateProfile from '../Components/Candidates/CandidateProfile';
 import EmployerOnboarding from '../Components/Employers/EmployerOnboarding';
 import EmployerProfile from '../Components/Employers/EmployerProfile';
 import EmployerConversation from '../Components/Employers/EmployerConversation'
-import EmployerJobs from '../Components/Employers//EmployerJobs'
+import EmployerJobs from '../Components/Employers/EmployerJobs'
 import EmployerApplication from '../Components/Employers/EmployerApplication'
-const Navbar = () => {
+const NavRoutes = () => {
 
   const ProtectedCandidate= ()=>{
     if(true){
@@ -43,7 +43,7 @@ const Navbar = () => {
     <div>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage/>} />
+        <Route index path="/" element={<LandingPage/>} />
         <Route path={"/candidate/authentication"} element={<Authentication/>}/>
         <Route element={<ProtectedCandidate/>}>
           <Route path="/candidate/Application" element={<CandidateApplication/>}/>
@@ -54,11 +54,11 @@ const Navbar = () => {
         </Route>
         <Route path={"/employer/authentication"} element={<Authentication/>}/>
         <Route element={<ProtectedEmployer/>}>
-            <Route path="employer/application" element= {<EmployerApplication/>}/>
-            <Route path="employer/onbarding" element= {<EmployerOnboarding/>}/>
-            <Route path="employer/profile" element= {<EmployerProfile/>}/>
-            <Route path="employer/jobs" element= {<EmployerJobs/>}/>
-            <Route path="employer/conversation" element= {<EmployerConversation/>}/>
+            <Route path="/employer/application" element= {<EmployerApplication/>}/>
+            <Route path="/employer/onbarding" element= {<EmployerOnboarding/>}/>
+            <Route path="/employer/profile" element= {<EmployerProfile/>}/>
+            <Route path="/employer/jobs" element= {<EmployerJobs/>}/>
+            <Route path="/package-lock.jsonemployer/conversation" element= {<EmployerConversation/>}/>
         </Route>
       </Routes>
       </BrowserRouter>
@@ -66,7 +66,7 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default NavRoutes
 
 // path / is the landing page
 // path candidate/auth is the candidate auth page
