@@ -43,8 +43,9 @@ const navigate=useNavigate();
       <Container
       sx={{
         backgroundColor: "white",
+        width: "100"
       }}
-      maxWidth="xl">
+      maxWidth="100%">
         <Toolbar disableGutters>
           <Typography
             variant="h6"

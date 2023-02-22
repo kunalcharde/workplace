@@ -27,7 +27,6 @@
   line-height: 35px;
   padding: 0px 60px;
   text-align: center;
-
   color: #000000;
 }
 
@@ -73,19 +72,52 @@
 .info-card {
   background: #ffffff;
   box-shadow: 0px 1px 4px rgb(0 0 0 / 25%);
+  width: 300px;
   border-radius: 20px;
-  padding: 10px;
+  padding: 15px 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
+  flex-wrap: nowrap;
   margin: 10px;
+  box-sizing: border-box;
 }
 .info-card img {
-  width: 30px;
-  /* height: 100px;
-    border-radius: 50%;
-    object-fit: cover; */
+  width: 40px;
+  margin-right: 1rem;
 }
 /* clamp(min font px ,ratio , max font px ) */
 /* ratio ( (max font/design width)X100 vw ) */
+.feedback-card-container{
+    height: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.feedback-card{
+    width: 268px;
+    height: 308px;
+    box-shadow: 0px 1px 4px rgb(0 0 0 / 25%);
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem ;
+}
+.feeback-card-header{
+    height:30px;
+    padding:0;
+    box-sizing:border-box;
+}
+ h3{
+    padding: 0px;
+    margin: 0px;
+}
+h2{
+    padding: 0px;
+    margin: 0px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+}

@@ -1,16 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
 .candidate-onboarding-container {
   width: 100%;
-  height: 100vh;
   background: #e5e5e5;
 }
 .candidate-onboarding-form {
-  margin: 3rem 2rem;
-  /* border:1px solid #111; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+.candidate-onboarding-form h3{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 .flex {
   display: flex;
   gap: 10px;
@@ -26,4 +32,14 @@
    padding: 5px 5px;
    margin-right:1rem;
    justify-content: flex-start;
+}
+.logout-btn{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.complete-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

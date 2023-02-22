@@ -27,7 +27,7 @@ const NavRoutes = () => {
       return <Outlet/>
     }
     else {
-      <Navigate to="/candidate/authentication"/>
+     return  <Navigate to="/candidate/authentication"/>
     }
   }
   const ProtectedEmployer= ()=>{
@@ -35,7 +35,7 @@ const NavRoutes = () => {
       return <Outlet/>
     }
     else {
-      <Navigate to="/employer/authentication"/>
+      return <Navigate to="/employer/authentication"/>
     }
   }
 
@@ -55,7 +55,7 @@ const NavRoutes = () => {
         <Route path={"/employer/authentication"} element={<Authentication/>}/>
         <Route element={<ProtectedEmployer/>}>
             <Route path="/employer/application" element= {<EmployerApplication/>}/>
-            <Route path="/employer/onbarding" element= {<EmployerOnboarding/>}/>
+            <Route path="/employer/onboarding" element= {<EmployerOnboarding/>}/>
             <Route path="/employer/profile" element= {<EmployerProfile/>}/>
             <Route path="/employer/jobs" element= {<EmployerJobs/>}/>
             <Route path="/package-lock.jsonemployer/conversation" element= {<EmployerConversation/>}/>

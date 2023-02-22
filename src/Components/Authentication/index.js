@@ -1,16 +1,16 @@
 import { Button, Grid, Pagination } from "@mui/material";
 import React from "react";
+// import authimg from "../../assets/authimg.png";
+// import googlebtn from "../../assets/google-btn.png";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useContext } from "react";
 import { userContext } from "../../Context/userContext";
-// import "./auth.css";
 import { useNavigate } from "react-router-dom";
-import {auth} from "../../FirebaseConfig"
-function Auth({ type }) {
+import {auth} from '../../FirebaseConfig';
+
+ function Auth({type}){
   const navigate = useNavigate();
-
   const [state, dispatch] = useContext(userContext);
-
   const redirectUser = () => {
     if (
       // user exists
@@ -75,23 +75,25 @@ function Auth({ type }) {
         // Handle Errors here.
        console.log(error,'error')
       });
-  };
+    };
   return (
     <Grid container>
       <Grid className="auth-btn-container" item xs={12} md={8}>
-        <h1>welcome {type}</h1>
-        <h3>please Sign IN</h3>
+        <h1>Welcome {type}</h1>
+        <h3>Please Sign In</h3>
         <div onClick={singIn} className="auth-btn">
-          <img src={googlebtn} alt="googlebtn" />
+          {/* <img src={"googlebtn"} alt="googlebtn" /> */}
+          Sign In Button
         </div>
       </Grid>
       <Grid item xs={12} md={4}>
         <div>
-          <img width="100%" src={authimg} alt="authimg" />
+          {/* <img width="100%" src={"authimg"} alt="authimg" /> */}
         </div>
       </Grid>
     </Grid>
   );
 }
+
 
 export default Auth;
