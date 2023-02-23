@@ -91,7 +91,7 @@ const FeedbackCard = () => {
               </div>
               <div className="feeback-card-desc-container">
                 <h2 className="feeback-card-position">{item.position}</h2>
-                <p className="feeback-card-role">{item.role}</p>
+                <h5 className="feeback-card-role">{item.role}</h5>
                 <p className="feeback-card-desc">{item.desc}</p>
               </div>
               <div className="feeback-card-footer">
