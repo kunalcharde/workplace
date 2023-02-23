@@ -23,7 +23,7 @@ import EmployerApplication from '../Components/Employers/EmployerApplication'
 const NavRoutes = () => {
 
   const ProtectedCandidate= ()=>{
-    if(true){
+    if(false){
       return <Outlet/>
     }
     else {
