@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Label } from "@mui/icons-material";
 import { Button, Grid, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -9,7 +8,8 @@ import CountrySelect from "../../../Constants/countries";
 import Locations from "../../../Constants/Locations";
 import { db } from "../../../FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
-
+import { userContext } from "../../../Context/userContext";
+import React, { useContext, useState } from "react";
 import {
   primaryRole,
   skills,
@@ -21,6 +21,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 
 
 const CandidateOnboarding = () => {
+  const [state, dispatch] = useContext(userContext);
   const [userData, setUserData] = useState({
     name: "",
     email: "",
