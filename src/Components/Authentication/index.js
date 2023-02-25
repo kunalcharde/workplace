@@ -6,42 +6,42 @@ import googlebtn from "../../assets/google-btn.png";
 import {signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useContext } from "react";
 import { userContext } from "../../Context/userContext";
+import {auth, db} from '../../FirebaseConfig'
+import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import {auth} from '../../FirebaseConfig';
+
 
  function Auth({type}){
-  console.log(type,"type")
+  
   const navigate = useNavigate();
   const [state, dispatch] = useContext(userContext);
-  const redirectUser = () => {
+  const redirectUser = async (email) => {
+    const docref=doc(db,'userInfo',email)
+    const userData= await getDoc(docref)
+    let userInformation=null
+    if(userData.exists()){
+      userInformation=userData.data()
+    }
     if (
       // user exists
-      true
+      userInformation
     ) {
       if (
-        // user exist as candidate but trying to login as employer
-        false
+        // user exist as candidate but trying to login as employer or vice versa
+        userInformation.userType===type
       ) {
-        //alert user he exist as candidate
-      } else if (
-        // user exist as employer but trying to login as candidate
-        false
-      ) {
-        //alert user he exist as employer
-      } else if (
-        // user exist as candidate and trying to login as candidate
-        true
-      ) {
+        dispatch({
+          type:'AddUSERINFO',
+          payload:userInformation
+        })
         // redirect to candidate profile
-        navigate("/candidate/profile");
-      } else if (
-        // user exist as employer and trying to login as employer
-        true
-      ) {
-        // redirect to employer profile
-        navigate("/employer/profile");
+        navigate(`/${type}/profile`);
       }
-    } else {
+      else{
+        alert(`this ID exist as ${userInformation.userType} but you are tring to signIn as ${type}`)
+      }
+    }
+     else {
       // user doesn't exist
       if (type === "candidate") {
         // redirect to candidate onboarding
@@ -70,14 +70,14 @@ import {auth} from '../../FirebaseConfig';
             uid,
           }
         })
-        redirectUser();
+        redirectUser(email);
 
       })
       .catch((error) => {
         // Handle Errors here.
        console.log(error,'error')
       });
-    };
+  };
   return (
     <Grid container>
       <Grid className="auth-btn-container" item xs={12} md={8}>

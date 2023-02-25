@@ -10,6 +10,8 @@ import { db } from "../../../FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { userContext } from "../../../Context/userContext";
 import React, { useContext, useState } from "react";
+import toastMessage from "../../../utils/toastmessage";
+import { useNavigate } from "react-router-dom";
 import {
   primaryRole,
   skills,
@@ -21,16 +23,17 @@ import InputAdornment from "@mui/material/InputAdornment";
 
 
 const CandidateOnboarding = () => {
+  const navigate= useNavigate()
   const [state, dispatch] = useContext(userContext);
   const [userData, setUserData] = useState({
-    name: "",
-    email: "",
+    name: state.user.displayName,
+    email: state.user.email,
     phone: "",
     location: "",
     experience: "",
     primaryRole: "",
     portfolio: "",
-    linkdin: "",
+    linkedin: "",
     skills: [],
     bio: "",
     resume: "",
@@ -54,18 +57,16 @@ const CandidateOnboarding = () => {
     console.log(userData);
 
     // // push data to firebase to collection userInfo
-    // const userId = state.user.email;
-
+    const userId = state.user.email;
     // setDoc(doc ref, data)
     // doc(db ref, collection name, doc id)
-    const userId = state.user.email;
     try {
       await setDoc(doc(db, "userInfo", userId), {
         ...userData,
         userId,
         userType: "candidate",
       });
-      // toastMessage("data saved successfully", "success");
+      toastMessage("data saved successfully", "success");
       // redirect to profile page
       dispatch({
         type:'AddUSERINFO',
@@ -78,7 +79,7 @@ const CandidateOnboarding = () => {
       navigate("/candidate/profile");
     } catch (err) {
       console.log(err);
-      // toastMessage("something went wrong", "error");
+      toastMessage("something went wrong", "error");
     }
   };
 
@@ -95,7 +96,7 @@ const CandidateOnboarding = () => {
         </div>
         <div className="candidate-onboarding-form">
           <h3>Setup Your Profile</h3>
-          <Grid container spacing={2} sm={10} xs={12}>
+          <Grid container spacing={2} sm={8} xs={10}>
             <Grid item xs={12} sm={6}>
               <TextField
                 id="outlined-basic"
@@ -129,6 +130,7 @@ const CandidateOnboarding = () => {
               <TextField
                 id="outlined-basic"
                 label="Email"
+                disable
                 variant="outlined"
                 required
                 size="Normal"
@@ -139,23 +141,17 @@ const CandidateOnboarding = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={Locations}
-                // sx={{ width: 300 }}
-                onChange={(e,newValue) =>
-                  setUserData({ ...userData, location: newValue })
+            <TextField
+                id="outlined-basic"
+                label="Location"
+                disable
+                variant="outlined"
+                required
+                size="Normal"
+                fullWidth
+                onChange={(e) =>
+                  setUserData({ ...userData, location: e.target.value })
                 }
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Location"
-                    required
-                    fullWidth
-                    
-                  />
-                )}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -227,7 +223,7 @@ const CandidateOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, linkdin: e.target.value })
+                  setUserData({ ...userData, linkedin: e.target.value })
                 }
                 InputProps={{
                   startAdornment: (

@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  .candidate-onboarding-container {
+    width: 100%;
+    background: #e5e5e5;
+  }
+  .candidate-onboarding-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .candidate-onboarding-form h3{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .flex {
+    display: flex;
+    gap: 10px;
+  }
+  .skill-box {
+      display: flex;
+    font-size: 1.2rem;
+    width: 229px;
+    height: 49px;
+    background: #ffffff;
+    border-radius: 6px;
+     box-sizing: border-box;
+     padding: 5px 5px;
+     margin-right:1rem;
+     justify-content: flex-start;
+  }
+  .logout-btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .complete-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  

@@ -1,7 +1,9 @@
 //importing some libraries and functions or constatns
-import React from 'react'
+import React,{useContext} from 'react'
 import { BrowserRouter,Routes,Route,Navigate,Outlet} from 'react-router-dom';
-
+import { userContext } from '../Context/userContext';
+import CandidateNavbar from "../HOC/CandidateNavbar";
+import EmployerNavbar from "../HOC/EmployerNavbar.js";
 //Authentication
 import Authentication from '../Components/Authentication';
 
@@ -21,48 +23,72 @@ import EmployerConversation from '../Components/Employers/EmployerConversation'
 import EmployerJobs from '../Components/Employers/EmployerJobs'
 import EmployerApplication from '../Components/Employers/EmployerApplication'
 const NavRoutes = () => {
-
-  const ProtectedCandidate= ()=>{
-    if(true){
+  const [state, dispatch] = useContext(userContext);
+ 
+ const ProtectedCandidate= ()=>{
+    const isAuth = state.isAuth
+    if(isAuth){
       return <Outlet/>
     }
     else {
      return  <Navigate to="/candidate/authentication"/>
     }
   }
+ 
   const ProtectedEmployer= ()=>{
-    if(true){
+    const isAuth = state.isAuth
+    if(isAuth){
       return <Outlet/>
     }
     else {
       return <Navigate to="/employer/authentication"/>
     }
   }
+  const Navbar = ({ type }) => {
+    if (type === "candidate") {
+      return (
+        <div>
+          <CandidateNavbar />
+          <Outlet />
+        </div>
+      );
+    } else if (type === "employer") {
+      return (
+        <div>
+          <EmployerNavbar />
+          <Outlet />
+        </div>
+      );
+    }
+  };
 
   return (
-    <div>
+    
       <BrowserRouter>
       <Routes>
         <Route index path="/" element={<LandingPage/>} />
-        <Route path={"/candidate/authentication"} element={<Authentication/>}/>
+        <Route path={"/candidate/authentication"} element={<Authentication type={"candidate"}/>}/>
         <Route element={<ProtectedCandidate/>}>
-          <Route path="/candidate/Application" element={<CandidateApplication/>}/>
           <Route path="/candidate/onboarding" element={<CandidateOnboarding/>}/>
+          <Route element={<Navbar type={"candidate"} />}>
+          <Route path="/candidate/application" element={<CandidateApplication/>}/>
           <Route path="/candidate/profile" element={<CandidateProfile/>}/>
           <Route path="/candidate/jobs" element={<CandidateJobs/>}/>
           <Route path="/candidate/conversation" element={<CandidateConversation/>}/>
+          </Route>
         </Route>
-        <Route path={"/employer/authentication"} element={<Authentication/>}/>
+        <Route path={"/employer/authentication"} element={<Authentication type={"employer"}/>}/>
         <Route element={<ProtectedEmployer/>}>
-            <Route path="/employer/application" element= {<EmployerApplication/>}/>
             <Route path="/employer/onboarding" element= {<EmployerOnboarding/>}/>
+            <Route element={<Navbar type={"employer"} />}>
+            <Route path="/employer/application" element= {<EmployerApplication/>}/>
             <Route path="/employer/profile" element= {<EmployerProfile/>}/>
-            <Route path="/employer/jobs" element= {<EmployerJobs/>}/>
-            <Route path="/package-lock.jsonemployer/conversation" element= {<EmployerConversation/>}/>
+            <Route path="/employer/job" element= {<EmployerJobs/>}/>
+            <Route path="/employer/conversation" element= {<EmployerConversation/>}/>
+            </Route>
         </Route>
       </Routes>
       </BrowserRouter>
-    </div>
   )
 }
 

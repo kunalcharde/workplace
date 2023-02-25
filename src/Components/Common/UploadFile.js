@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import {storage} from "../../FirebaseConfig"
+import { storage } from "../../FirebaseConfig";
 function UploadFile({ type = "doc", onUpload, value, disabled }) {
   const [progress, setProgress] = useState(0);
   const upload = (e) => {
@@ -35,7 +35,7 @@ function UploadFile({ type = "doc", onUpload, value, disabled }) {
   ) : (
     <div>
       <TextField
-      
+        
         size="small"
         type={"file"}
         inputProps={{
