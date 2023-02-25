@@ -124,16 +124,19 @@ h2 {
   padding: 0px;
   margin: 0px;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 h5{
   margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 1em;
 }
 p {
   padding: 0px;
   margin: 0px;
   margin-bottom: 1rem;
-  text-align: justify ;
   color: #615c5c;
+  line-height: 1;
 }
 
 .feeback-card-footer {

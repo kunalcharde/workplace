@@ -3,7 +3,7 @@ import React from "react";
 import './auth.css';
 import authimg from "../../assets/authimg.png";
 import googlebtn from "../../assets/google-btn.png";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useContext } from "react";
 import { userContext } from "../../Context/userContext";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ import {auth} from '../../FirebaseConfig';
   const redirectUser = () => {
     if (
       // user exists
-      false
+      true
     ) {
       if (
         // user exist as candidate but trying to login as employer
