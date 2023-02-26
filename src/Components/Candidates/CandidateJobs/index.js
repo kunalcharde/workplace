@@ -81,7 +81,7 @@ function Jobs() {
         createdAt: new Date(),
         candidateName: state.user.displayName,
         experience: job.experience,
-        // resume: state.userInfo.resume,
+        resume: state.userInfo.resume,
         status: "pending",
       });
       toastMessage("Applied successfully", "success");

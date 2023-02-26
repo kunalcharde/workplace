@@ -145,6 +145,7 @@ function EmployerApplication() {
       }
     }
   };
+  {console.log(applications,"hgjhg")}
   return applications && applications.length === 0 ? (
     <div className="text-center">No Applications</div>
   ) : applications && applications.length > 0 ? (
