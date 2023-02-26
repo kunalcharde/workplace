@@ -1,0 +1,55 @@
+.table{
+    overflow: scroll;
+    max-width: 95%;
+    margin: auto;
+  }
+  .table-container{
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .table-header{
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 20%);
+    border-radius: 15px;
+    margin: 10px auto;
+    padding: 10px;
+    font-weight: 600;
+  font-size:clamp(12px, 1.3vw,  20px);
+  line-height:clamp(14px, 1.4vw,  24px);
+  }
+  .table-body{
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 20px;
+    margin: 10px auto;
+    padding: 10px;
+    font-weight: 500;
+  font-size: clamp(10px, 1.2vw,  16px);
+  line-height: clamp(12px, 1.2vw,  19px);
+  }
+  .shortlist-btn{
+    padding: 5px 10px;
+      border: none;
+      background: #09b334;
+      color: #fff;
+      border-radius: 8px;
+      margin-left: 10px;
+  }
+  .reject-btn{
+    padding: 5px 10px;
+      border: none;
+      background: #e65252;
+      color: #fff;
+      border-radius: 8px;
+      margin-left: 10px;
+  }
+  
+  @media screen and (max-width:760px){
+    .table-container{
+      width: 600px!important;
+    }
+    
+  }

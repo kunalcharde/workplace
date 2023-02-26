@@ -8,7 +8,7 @@ import "./style.css"
 const EmployerProfile = () => {
   const [state, dispatch] = useContext(userContext)
   return (
-    <div className="container1">
+    <div className="container">
        <div className="profile-container">
         <Grid container sm={12}  xs={12} sx={{display:'flex',justifyContent:"space-between",borderBottom:"1px solid #000",paddingBottom:"1rem"}}>
           <Grid item sm={2} xs={2}>

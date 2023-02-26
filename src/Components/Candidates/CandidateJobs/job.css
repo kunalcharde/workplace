@@ -1,0 +1,59 @@
+.card-container{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-width: 1000px;
+        width: 90%;
+        margin: 10px auto;
+        padding: 10px;
+    
+    }
+    .company-info{
+      text-align: left;
+    }
+    .company-info h2{
+      font-weight: 500;
+    font-size: clamp(20px, 2.1vw, 32px);
+    line-height:clamp(28px, 2.5vw, 38px);
+    margin: 2px;
+    color: #000000;
+    }
+    
+    .company-info h3{
+      font-weight: 400;
+    font-size: clamp(12px, 1.3vw, 20px);
+    line-height:clamp(16px, 1.5vw, 24px);
+    color: #000000;
+    margin: 5px;
+    
+    }
+    
+    .company-info h4{
+      font-weight: 400;
+    font-size: clamp(10px, 1vw, 16px);
+    line-height: clamp(10px, 1.2vw, 19px);
+    color: #828282;
+    margin: 2px;
+    
+    }
+    
+    .job-info{
+      border: 1px solid #D4D4D4;
+      border-radius: 7px;
+      max-width: 95%;
+      margin: 15px auto;
+      padding: 10px;
+      text-align: left;
+      align-items: center;
+    }
+    .apply-btn{
+      background: #26D7AB;
+    border-radius: 5px;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin: 5px auto;
+    cursor: pointer;
+    
+    }

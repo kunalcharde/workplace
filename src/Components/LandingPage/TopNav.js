@@ -1,4 +1,5 @@
 import CommonNav from "../Common/CommonNav";
+import Logo from "../..//assets/logo.png";
 function TopNav() {
   const pages = [
     {
@@ -15,7 +16,7 @@ function TopNav() {
     }
   ];
   return (
-    <CommonNav pages={pages} />
+    <CommonNav pages={pages} Logo={Logo}/>
   );
 }
 export default TopNav;

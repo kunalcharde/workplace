@@ -8,7 +8,7 @@ import { Label } from '@mui/icons-material';
 const CandidateProfile = () => {
   const [state, dispatch] = useContext(userContext)
   return (
-    <div className="container">
+    <div className="container1">
       
       <div className="profile-container">
         <div className="button-container"><Button variant="outlined" size="small">Logout</Button > <Button variant="outlined" size="small">Edit</Button></div>

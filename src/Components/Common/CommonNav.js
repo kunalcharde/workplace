@@ -11,13 +11,13 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import Logo from "../..//assets/logo.png";
+
 import ToggleButton from "../Common/ToggleButton";
 import { useNavigate } from "react-router-dom";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function CommonNav({pages}) {
+function CommonNav({pages,Logo}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 const navigate=useNavigate();

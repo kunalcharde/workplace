@@ -131,9 +131,9 @@ h5{
   font-weight: 400;
   font-size: 1em;
 }
-p {
+.feeback-card-desc {
   padding: 0px;
-  margin: 0px;
+  margin: 10px 0;
   margin-bottom: 1rem;
   color: #615c5c;
   line-height: 1;

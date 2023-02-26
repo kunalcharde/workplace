@@ -1,4 +1,3 @@
-
 import { Button, Grid, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
@@ -10,39 +9,37 @@ import { db } from "../../../FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { userContext } from "../../../Context/userContext";
 import React, { useContext, useState } from "react";
-import toastMessage from "../../../utils/toastmessage";
+import toastMessage from "../../../utils/toastMessage";
 import { useNavigate } from "react-router-dom";
 import { companySize, industryType } from "../../../Constants";
 import LinkIcon from "@mui/icons-material/Link";
 import UploadFile from "../../Common/UploadFile";
 import InputAdornment from "@mui/material/InputAdornment";
 
-
 const EmployerOnboarding = () => {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const [state, dispatch] = useContext(userContext);
-  const [userData, setUserData] = useState({
+  const [companyData, setcompanyData] = useState({
     companyName: "",
-    name:"",
-    role:"",
+    name: "",
+    role: "",
     email: "",
     phone: "",
     industryType: "",
     companySize: "",
-    location:"",
+    location: "",
     twitter: "",
     facebook: "",
-    website:"",
+    website: "",
     linkedin: "",
-    companyTagline:"",
+    companyTagline: "",
     companybio: "",
     logo: "",
   });
 
-  
   const submitData = async (e) => {
     e.preventDefault();
-    console.log(userData);
+    console.log(companyData);
 
     // // push data to firebase to collection userInfo
     const userId = state.user.email;
@@ -50,33 +47,30 @@ const EmployerOnboarding = () => {
     // doc(db ref, collection name, doc id)
     try {
       await setDoc(doc(db, "userInfo", userId), {
-        ...userData,
+        ...companyData,
         userId,
-        userType: "candidate",
+        userType: "employer",
       });
       toastMessage("data saved successfully", "success");
       // redirect to profile page
       dispatch({
-        type:'AddUSERINFO',
-        payload:{
-          ...userData,
+        type: "AddUSERINFO",
+        payload: {
+          ...companyData,
           userId,
           userType: "employer",
-        }
-      })
-      navigate("/candidate/profile");
+        },
+      });
+      navigate("/employer/profile");
     } catch (err) {
       console.log(err);
       toastMessage("something went wrong", "error");
     }
   };
 
-
-
   return (
-    
-      <div className="candidate-onboarding-container">
-        <form onSubmit={submitData}>
+    <div className="candidate-onboarding-container">
+      <form onSubmit={submitData}>
         <div className="logout-btn">
           <Button variant="outlined" sx={{ margin: "2rem 2rem 0 0" }}>
             Logout
@@ -94,7 +88,10 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, companyName: e.target.value })
+                  setcompanyData({
+                    ...companyData,
+                    companyName: e.target.value,
+                  })
                 }
               />
             </Grid>
@@ -109,7 +106,7 @@ const EmployerOnboarding = () => {
                   size="Normal"
                   fullWidth
                   onChange={(e) =>
-                    setUserData({ ...userData, phone: e.target.value })
+                    setcompanyData({ ...companyData, phone: e.target.value })
                   }
                 />
               </div>
@@ -124,7 +121,7 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, email: e.target.value })
+                  setcompanyData({ ...companyData, email: e.target.value })
                 }
               />
             </Grid>
@@ -134,8 +131,8 @@ const EmployerOnboarding = () => {
                 id="combo-box-demo"
                 options={industryType}
                 // sx={{ width: 300 }}
-                onChange={(e,newValue) =>
-                  setUserData({ ...userData, industryType: newValue })
+                onChange={(e, newValue) =>
+                  setcompanyData({ ...companyData, industryType: newValue })
                 }
                 renderInput={(params) => (
                   <TextField
@@ -143,19 +140,18 @@ const EmployerOnboarding = () => {
                     label="Industry Type"
                     required
                     fullWidth
-                    
                   />
                 )}
               />
-            </Grid>         
+            </Grid>
             <Grid item xs={12} sm={6}>
               <Autocomplete
                 disablePortal
                 id="combo-box-demo"
                 options={companySize}
                 // sx={{ width: 300 }}
-                onChange={(e,newValue) =>
-                  setUserData({ ...userData, companySize: newValue })
+                onChange={(e, newValue) =>
+                  setcompanyData({ ...companyData, companySize: newValue })
                 }
                 renderInput={(params) => (
                   <TextField
@@ -163,13 +159,12 @@ const EmployerOnboarding = () => {
                     label="Company Size"
                     required
                     fullWidth
-                   
                   />
                 )}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-            <TextField
+              <TextField
                 id="outlined-basic"
                 label="Your Name"
                 disable
@@ -178,12 +173,12 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, name: e.target.value })
+                  setcompanyData({ ...companyData, name: e.target.value })
                 }
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-            <TextField
+              <TextField
                 id="outlined-basic"
                 label="Your Role"
                 disable
@@ -192,12 +187,12 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, role: e.target.value })
+                  setcompanyData({ ...companyData, role: e.target.value })
                 }
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-            <TextField
+              <TextField
                 id="outlined-basic"
                 label="Location"
                 disable
@@ -206,7 +201,7 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, location: e.target.value })
+                  setcompanyData({ ...companyData, location: e.target.value })
                 }
               />
             </Grid>
@@ -219,7 +214,7 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, website: e.target.value })
+                  setcompanyData({ ...companyData, website: e.target.value })
                 }
                 InputProps={{
                   startAdornment: (
@@ -239,7 +234,7 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, linkedin: e.target.value })
+                  setcompanyData({ ...companyData, linkedin: e.target.value })
                 }
                 InputProps={{
                   startAdornment: (
@@ -249,7 +244,7 @@ const EmployerOnboarding = () => {
                   ),
                 }}
               />
-            </Grid> 
+            </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 id="outlined-basic"
@@ -259,7 +254,7 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, facebook: e.target.value })
+                  setcompanyData({ ...companyData, facebook: e.target.value })
                 }
                 InputProps={{
                   startAdornment: (
@@ -279,7 +274,7 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, twitter: e.target.value })
+                  setcompanyData({ ...companyData, twitter: e.target.value })
                 }
                 InputProps={{
                   startAdornment: (
@@ -291,7 +286,7 @@ const EmployerOnboarding = () => {
               />
             </Grid>
             <Grid item xs={12} sm={12}>
-            <TextField
+              <TextField
                 id="outlined-basic"
                 label="Company Tagline"
                 disable
@@ -300,7 +295,10 @@ const EmployerOnboarding = () => {
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, companyTagline: e.target.value })
+                  setcompanyData({
+                    ...companyData,
+                    companyTagline: e.target.value,
+                  })
                 }
               />
             </Grid>
@@ -312,7 +310,7 @@ const EmployerOnboarding = () => {
                 minRows={4}
                 fullWidth
                 onChange={(e) =>
-                  setUserData({ ...userData, companybio: e.target.value })
+                  setcompanyData({ ...companyData, companybio: e.target.value })
                 }
               />
             </Grid>
@@ -320,20 +318,22 @@ const EmployerOnboarding = () => {
               <label>Company Logo*</label>
               <Box
                 xs={12}
-                sm={12} 
+                sm={12}
                 sx={{
                   border: "1.2px dashed black",
                   height: "8rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginTop:"1rem"
+                  marginTop: "1rem",
                 }}
               >
                 <UploadFile
                   type="image"
-                  onUpload={(url) => setUserData({ ...userData, logo: url })}
-                  value={userData.logo}
+                  onUpload={(url) =>
+                    setcompanyData({ ...companyData, logo: url })
+                  }
+                  value={companyData.logo}
                 />
               </Box>
             </Grid>
@@ -348,17 +348,19 @@ const EmployerOnboarding = () => {
                 m: "2rem 0",
               }}
             >
-              <Button type ="submit" variant="contained" sx={{ background: "#26d7ab" }}>
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{ background: "#26d7ab" }}
+              >
                 Complete Setup
               </Button>
             </Grid>
           </Grid>
         </div>
-        </form>
-      </div>
-   
+      </form>
+    </div>
   );
 };
 
 export default EmployerOnboarding;
-

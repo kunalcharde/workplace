@@ -38,7 +38,7 @@ import { useNavigate } from "react-router-dom";
         navigate(`/${type}/profile`);
       }
       else{
-        alert(`this ID exist as ${userInformation.userType} but you are tring to signIn as ${type}`)
+        alert(`This ID exist as ${userInformation.userType} but you are tring to signIn as ${type}`)
       }
     }
      else {

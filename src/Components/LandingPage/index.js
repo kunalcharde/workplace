@@ -6,7 +6,8 @@ import ManySolutoinSection from "./ManySolutionSection";
 import { Button} from "@mui/material";
 import landing from "../../assets/landingpg.png"
 import { useNavigate } from "react-router-dom";
-import FooterNav from "./FooterNav";
+
+import BottomNav from "./BottomNav";
 function Landingpage() {
   const navigation = useNavigate()
   return (
@@ -31,7 +32,8 @@ function Landingpage() {
       <div className="landing-img">
           <img src= {landing} alt="img" />
       </div>
-      <FooterNav/>
+     
+      <BottomNav/>
     </div>
   );
 }

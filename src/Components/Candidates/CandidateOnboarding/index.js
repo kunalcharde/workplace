@@ -10,20 +10,15 @@ import { db } from "../../../FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { userContext } from "../../../Context/userContext";
 import React, { useContext, useState } from "react";
-import toastMessage from "../../../utils/toastmessage";
+import toastMessage from "../../../utils/toastMessage";
 import { useNavigate } from "react-router-dom";
-import {
-  primaryRole,
-  skills,
-  experience,
-} from "../../../Constants";
+import { primaryRole, skills, experience } from "../../../Constants";
 import LinkIcon from "@mui/icons-material/Link";
 import UploadFile from "../../Common/UploadFile";
 import InputAdornment from "@mui/material/InputAdornment";
 
-
 const CandidateOnboarding = () => {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const [state, dispatch] = useContext(userContext);
   const [userData, setUserData] = useState({
     name: state.user.displayName,
@@ -69,13 +64,13 @@ const CandidateOnboarding = () => {
       toastMessage("data saved successfully", "success");
       // redirect to profile page
       dispatch({
-        type:'AddUSERINFO',
-        payload:{
+        type: "AddUSERINFO",
+        payload: {
           ...userData,
           userId,
           userType: "candidate",
-        }
-      })
+        },
+      });
       navigate("/candidate/profile");
     } catch (err) {
       console.log(err);
@@ -83,12 +78,9 @@ const CandidateOnboarding = () => {
     }
   };
 
-
-
   return (
-    
-      <div className="candidate-onboarding-container">
-        <form onSubmit={submitData}>
+    <div className="candidate-onboarding-container">
+      <form onSubmit={submitData}>
         <div className="logout-btn">
           <Button variant="outlined" sx={{ margin: "2rem 2rem 0 0" }}>
             Logout
@@ -141,7 +133,7 @@ const CandidateOnboarding = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-            <TextField
+              <TextField
                 id="outlined-basic"
                 label="Location"
                 disable
@@ -160,7 +152,7 @@ const CandidateOnboarding = () => {
                 id="combo-box-demo"
                 options={experience}
                 // sx={{ width: 300 }}
-                onChange={(e,newValue) =>
+                onChange={(e, newValue) =>
                   setUserData({ ...userData, experience: newValue })
                 }
                 renderInput={(params) => (
@@ -169,7 +161,6 @@ const CandidateOnboarding = () => {
                     label="Experience"
                     required
                     fullWidth
-                   
                   />
                 )}
               />
@@ -180,7 +171,7 @@ const CandidateOnboarding = () => {
                 id="combo-box-demo"
                 options={primaryRole}
                 // sx={{ width: 300 }}
-                onChange={(e,newValue) =>
+                onChange={(e, newValue) =>
                   setUserData({ ...userData, primaryRole: newValue })
                 }
                 renderInput={(params) => (
@@ -189,7 +180,6 @@ const CandidateOnboarding = () => {
                     label="Primary Role"
                     required
                     fullWidth
-                   
                   />
                 )}
               />
@@ -307,15 +297,18 @@ const CandidateOnboarding = () => {
                 m: "2rem 0",
               }}
             >
-              <Button type ="submit" variant="contained" sx={{ background: "#26d7ab" }}>
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{ background: "#26d7ab" }}
+              >
                 Complete Setup
               </Button>
             </Grid>
           </Grid>
         </div>
-        </form>
-      </div>
-   
+      </form>
+    </div>
   );
 };
 

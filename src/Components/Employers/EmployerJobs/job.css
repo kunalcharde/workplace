@@ -1,0 +1,91 @@
+.post-btn{
+    background: rgba(69, 64, 219, 0.05) !important;
+    border: 1.5px solid #4540DB !important;
+    border-radius: 19px !important;
+    width: 100%;
+    height: 102px;
+    font-weight: 600 !important;
+    font-size: clamp(14,1.9vw,28px) !important;
+    line-height: 34px !important;
+    color: #4540DB !important;
+    }
+    .sideJobCard {
+      text-align: left;
+      padding: 10px 20px;
+      margin: 10px 0;
+    }
+    .sideJobCard-select{
+      background: #F2F2F2;
+      border-left: 3px solid #4540DB;
+      border-radius: 10px;
+    }
+    .sideJobCard h4{
+      font-style: normal;
+    font-weight: 500;
+    font-size:clamp(8px,1vw,12px);
+    line-height: 14px;
+    color: #959595;
+    margin: 0;
+    }
+    .sideJobCard h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(16px,1.4vw,22px);
+    line-height: 26px;
+    margin: 0;
+    color: #000000;
+    }
+    .sideJobCard h2{
+      font-style: normal;
+    font-weight: 500;
+    font-size: clamp(12px,1.2vw,16px);
+    line-height: 19px;
+    margin: 0;
+    color: #959595;
+    }
+    .sideJobCard h3{
+      font-weight: 500;
+      font-size: clamp(12px,1.2vw,16px);
+    line-height: 19px;
+    
+    color: #959595;
+    }
+    .grid-container{
+      background: #fff;
+      max-width: 95%;
+      margin: auto !important;
+      padding: 10px 10px;
+      border-radius: 5px;
+    }
+    .grid-item label{
+      font-weight: 700;
+      font-size: 16px;
+      float: left;
+      margin: 10px;
+    }
+    .skills-container{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 2px;
+    }
+    .skills-container div{
+      padding: 5px;
+        background: #c9e1ef;
+        border-radius: 10px;
+        font-size: 13px;
+        cursor: pointer;
+    
+    }
+    .save-btn{
+      width: 177px!important;
+    height: 50px!important;
+    border-radius: 8px!important;
+    color: #fff !important;
+    }
+    
+    @media screen and (max-width:760px){
+      .save-btn{
+        width: 100% !important;
+      }
+    }
