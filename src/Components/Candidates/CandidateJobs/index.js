@@ -11,6 +11,7 @@ import { db } from "../../../FirebaseConfig";
 import JobsCard from "./JobsCard";
 import { v4 as uuidv4 } from "uuid";
 import { userContext } from "../../../Context/userContext";
+import toastMessage from "../../../utils/toastMessage";
 
 function Jobs() {
   const [state, dispatch] = useContext(userContext);
@@ -62,7 +63,7 @@ function Jobs() {
     });
 
     if (isApplied) {
-      // toastMessage("You have already applied for this job", "error");
+      toastMessage("You have already applied for this job", "error");
       return;
     }
 
@@ -84,10 +85,10 @@ function Jobs() {
         resume: state.userInfo.resume,
         status: "pending",
       });
-      // toastMessage("Applied successfully", "success");
+      toastMessage("Applied successfully", "success");
     } catch (err) {
       console.log(err);
-      // toastMessage("Something went wrong", "error");
+      toastMessage("Something went wrong", "error");
     }
   };
   return Alljobs && Alljobs.length === 0 ? (

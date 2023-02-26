@@ -14,6 +14,7 @@ import { db } from "../../../FirebaseConfig";
 import { v4 as uuidv4 } from "uuid";
 import CommonTable from "../../Common/CommonTable";
 import toastMessage from "../../../utils/toastMessage";
+
 const columns = [
   {
     label: "Name",
