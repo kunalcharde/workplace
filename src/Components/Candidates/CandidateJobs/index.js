@@ -25,7 +25,7 @@ function Jobs() {
       // doc.data() is never undefined for query doc snapshots
       jobs.push(doc.data());
     });
-     console.log(jobs,"fdg")
+    
     setAlljobs(jobs);
   };
 
