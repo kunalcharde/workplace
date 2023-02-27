@@ -1,5 +1,5 @@
 import { Store } from 'react-notifications-component';
-export default function toastMessage(message, type='success') {
+ function toastMessage(message, type='success') {
 
   if(type==='success'){
   Store.addNotification({
@@ -35,3 +35,4 @@ export default function toastMessage(message, type='success') {
   }
  
 }
+export default toastMessage
