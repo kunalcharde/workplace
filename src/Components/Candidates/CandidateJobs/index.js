@@ -64,7 +64,7 @@ function Jobs() {
 
     if (isApplied) {
       toastMessage("You have already applied for this job", "error");
-      return;
+        return;
     }
 
     // create a new collection in firestore call applications

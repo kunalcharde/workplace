@@ -2,7 +2,10 @@ import { Grid } from "@mui/material";
 import moment from "moment";
 import React from "react";
 import "./job.css";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 function JobsCard({ job,applyonJob }) {
+  console.log(job,"job")
   return (
     <div className="card-container">
       <Grid
@@ -14,28 +17,39 @@ function JobsCard({ job,applyonJob }) {
         }}
       >
         <Grid item xs={3}>
-          <img src={job.companyLogo} alt="company logo" width={"55px"} />
+          <img src={job.companyLogo} alt="company logo"  className="companyLogo" />
         </Grid>
-        <Grid className="company-info" item xs={9}>
+        <Grid className="company-info" item xs={6}>
           <h2>{job.companyName}</h2>
           <h3>{job.companyTag}</h3>
-          <h4>{job.companySize} employees</h4>
+          <h4><Groups2OutlinedIcon sx={{marginRight:"5px"}}/> { job.companySize } employees</h4>
+        </Grid>
+        <Grid xs={3} md={2} sx={{display:"flex"}}>
+          <LocationOnOutlinedIcon/>{job.jobLocation}
         </Grid>
       </Grid>
       <Grid className="job-info" container>
-        <Grid xs={8} md={3}>
+        <Grid xs={6} md={1}>
           {job.jobTitle}
         </Grid>
-        <Grid xs={4} md={1}>
-          - {job.jobLocation}
-        </Grid>
-        <Grid xs={8} md={4}>
-          {`• ${job.salaryRange.currency} ${job.salaryRange.min}-${job.salaryRange.max}`}
+        <Grid xs={6} md={2}>
+          {job.jobLocation}
         </Grid>
         <Grid xs={4} md={2}>
+          - {job.jobType}
+        </Grid>
+        <Grid xs={3} md={2} >
+          {`• ${job.salaryRange.currency} ${job.salaryRange.min}-${job.salaryRange.max}`}
+        </Grid>
+        <Grid xs={4} md={1}>
           {moment(job.createdAt.toDate()).startOf("day").fromNow()}
         </Grid>
-        <Grid xs={12} md={2}>
+        <Grid xs={6} md={2} >
+          <button
+          // onClick={()=>applyonJob(job)}
+          className="viewprofile-btn">View Job</button>
+        </Grid>
+        <Grid xs={6} md={2} >
           <button
           onClick={()=>applyonJob(job)}
           className="apply-btn">Apply</button>

@@ -1,0 +1,39 @@
+.side-card-container{
+    padding: 10px;
+    margin: 10px 0px !important;
+    cursor: pointer;
+  }
+  .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .info h1{
+    font-weight: 600;
+  font-size: clamp(12px, 1.5vw, 22px);
+  line-height: 26px;
+  color: #000000;
+  }
+  .info h5{
+    font-weight: 400;
+  font-size:clamp(10px, 1vw,  16px);
+  line-height: 19px;
+  
+  color: #828282;
+  
+  }
+  .side-card-container h6 {
+    font-weight: 400;
+    font-size: clamp(12px, 1vw, 18px);
+    margin: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #4F4F4F;
+  line-height: clamp(15px, 1.3vw, 22px);
+  
+  }
+  .selected{
+    border-left: 3px solid #4540DB;
+      border-radius: 10px;
+  }
