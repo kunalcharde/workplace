@@ -6,7 +6,7 @@ function TextArea({ selectedLastMessage, allConversations, sendMessage,setMobile
       sendMessage={sendMessage}
       selectedLastMessage={selectedLastMessage}
       allConversations={allConversations}
-      userType="employer"
+      userType="candidate"
       setMobileSidebaView={setMobileSidebaView}
     />
   ) : (

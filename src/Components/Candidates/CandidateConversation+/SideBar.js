@@ -12,7 +12,7 @@ function SideBar({ selectedLastMessage, selectedLastMessagefun }) {
     const employerId=state.user.email;
     const q =query(
       collection(db, "last_messages"),
-      where("employerId", "==", employerId)
+      where("candidateId", "==", employerId)
     )
    await onSnapshot(q,(querySnapshot)=>{
       const lastmessages = [];
@@ -31,7 +31,7 @@ function SideBar({ selectedLastMessage, selectedLastMessagefun }) {
       lastmessages={lastmessages}
       selectedLastMessage={selectedLastMessage}
       selectedLastMessagefun={selectedLastMessagefun}
-      userType="employer"
+      userType="candidate"
     />
   );
 }

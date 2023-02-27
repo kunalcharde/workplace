@@ -1,10 +1,12 @@
 import { Divider, Grid } from "@mui/material";
+import moment from "moment";
 import React from "react";
 import "./chatecomponent.css";
 function CommonLastMessage({
   lastmessages,
   selectedLastMessage,
   selectedLastMessagefun,
+  userType
 }) {
   return (
     <Grid
@@ -21,6 +23,7 @@ function CommonLastMessage({
                 selectedLastMessage&& selectedLastMessage.lastMessageId ===
                   lastmessage.lastMessageId && "selected"
               }`}
+              key={lastmessage.lastMessageId}
               item
               xs={12}
               onClick={() => selectedLastMessagefun(lastmessage)}
@@ -29,8 +32,8 @@ function CommonLastMessage({
                 className="info"
               
               >
-                <h4>{lastmessage.candidateName}</h4>
-                <h5>{lastmessage.createdAt}</h5>
+                <h4>{lastmessage[userType==='employer'?'candidateName':'employerName']}</h4>
+                <h5>{moment(lastmessage.createdAt.toDate()).startOf("day").fromNow()}</h5>
               </div>
               <h6>{lastmessage.message}</h6>
             </Grid>
