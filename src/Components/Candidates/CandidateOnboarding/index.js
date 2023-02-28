@@ -78,11 +78,16 @@ const CandidateOnboarding = () => {
     }
   };
 
+  const logout=()=>{
+    dispatch({
+      type: "LOGOUT",
+    });
+  }
   return (
     <div className="candidate-onboarding-container">
       <form onSubmit={submitData}>
         <div className="logout-btn">
-          <Button variant="outlined" sx={{ margin: "2rem 2rem 0 0" }}>
+          <Button variant="outlined" sx={{ margin: "2rem 2rem 0 0" }} onClick={logout}>
             Logout
           </Button>
         </div>
@@ -93,13 +98,15 @@ const CandidateOnboarding = () => {
               <TextField
                 id="outlined-basic"
                 label="Name"
+                disable
                 variant="outlined"
                 required
                 size="Normal"
                 fullWidth
-                onChange={(e) =>
-                  setUserData({ ...userData, name: e.target.value })
-                }
+                value={userData.name}
+                // onChange={(e) =>
+                //   setUserData({ ...userData, name: e.target.value })
+                // }
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -127,9 +134,10 @@ const CandidateOnboarding = () => {
                 required
                 size="Normal"
                 fullWidth
-                onChange={(e) =>
-                  setUserData({ ...userData, email: e.target.value })
-                }
+                value={userData.email}
+                // onChange={(e) =>
+                //   setUserData({ ...userData, email: e.target.value })
+                // }
               />
             </Grid>
             <Grid item xs={12} sm={6}>

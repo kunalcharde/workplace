@@ -50,8 +50,8 @@ function CandidateConversation() {
   }, [selectedLastMessage]);
   const sendMessage = async (message) => {
     // update the last message in the conversation collection
-
-    try{
+if(message!="")
+   { try{
     const lastmessageId = selectedLastMessage.lastMessageId;
     await setDoc(
       doc(db, "last_messages", lastmessageId),
@@ -78,7 +78,7 @@ function CandidateConversation() {
       console.log(err);
      
     }
-  };
+  };}
 
   return (
     <Grid container>

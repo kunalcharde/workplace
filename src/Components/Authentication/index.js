@@ -81,7 +81,8 @@ import toastMessage from "../utils/toastMessage";
   return (
     <Grid container>
       <Grid className="auth-btn-container" item xs={12} md={8}>
-        <h1>Welcome {type}</h1>
+        <h1>Login as {type.toUpperCase()}</h1>
+         <h2>Sign in With Google</h2>
         <div onClick={singIn} className="auth-btn">
         <img src={googlebtn} alt="googlebtn" />
         </div>

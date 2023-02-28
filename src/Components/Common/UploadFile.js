@@ -88,9 +88,7 @@ function UploadFile({ type = "doc", onUpload, value, disabled }) {
               </h3>
             )}
           </div>
-        ) : (
-          <h2>please upload a doc</h2>
-        )}
+        ) : ""}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import CommonNav from '../Components/Common/CommonNav';
-
+import logo from "../assets/logo.png"
 function CandidateNavbar() {
   const pages = [
     {
@@ -21,7 +21,7 @@ function CandidateNavbar() {
     }
   ];
   return (
-    <CommonNav pages={pages} />
+    <CommonNav pages={pages} Logo={logo} />
   );
 }
 

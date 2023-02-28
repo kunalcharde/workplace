@@ -4,6 +4,7 @@ import React from "react";
 import "./job.css";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
+import JobProfile from "./JobProfile";
 function JobsCard({ job,applyonJob }) {
   console.log(job,"job")
   return (
@@ -45,9 +46,7 @@ function JobsCard({ job,applyonJob }) {
           {moment(job.createdAt.toDate()).startOf("day").fromNow()}
         </Grid>
         <Grid xs={6} md={2} >
-          <button
-          // onClick={()=>applyonJob(job)}
-          className="viewprofile-btn">View Job</button>
+          <JobProfile/>
         </Grid>
         <Grid xs={6} md={2} >
           <button

@@ -6,7 +6,13 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import "./style.css"
 
 const EmployerProfile = () => {
-  const [state, dispatch] = useContext(userContext)
+  const [state, dispatch] = useContext(userContext);
+  const logout=()=>{
+    dispatch({
+      type: "LOGOUT",
+    });
+  }
+
   return (
     <div className="container">
        <div className="profile-container">
@@ -20,7 +26,7 @@ const EmployerProfile = () => {
           </Grid>
           <Grid item sm={4} xs={6} >
             <Button variant="outlined" size="small" sx={{gap: "2em",marginRight:"1rem"}}>Edit</Button>
-            <Button variant="outlined" size="small">Logout</Button>
+            <Button variant="outlined" size="small" onClick={logout}>Logout</Button>
           </Grid>
         </Grid>
       <Grid container sm={12} xs={12}>

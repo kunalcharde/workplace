@@ -31,7 +31,7 @@ const NavRoutes = () => {
       return <Outlet/>
     }
     else {
-     return  <Navigate to="/candidate/authentication"/>
+     return  <Navigate to="/"/>
     }
   }
  
@@ -41,7 +41,7 @@ const NavRoutes = () => {
       return <Outlet/>
     }
     else {
-      return <Navigate to="/employer/authentication"/>
+      return <Navigate to="/"/>
     }
   }
   const Navbar = ({ type }) => {

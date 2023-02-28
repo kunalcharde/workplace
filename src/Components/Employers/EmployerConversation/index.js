@@ -50,8 +50,8 @@ function EmployerConversation() {
   }, [selectedLastMessage]);
   const sendMessage = async (message) => {
     // update the last message in the conversation collection
-
-    try {
+if(message!="")
+    {try {
       const lastmessageId = selectedLastMessage.lastMessageId;
       await setDoc(
         doc(db, "last_messages", lastmessageId),
@@ -77,7 +77,7 @@ function EmployerConversation() {
       console.log(err);
       toastMessage("Error in sending message", "error");
     }
-  };
+  };}
 
   return (
     <Grid container>
