@@ -35,4 +35,4 @@ import { Store } from 'react-notifications-component';
   }
  
 }
-export default toastMessage
+export default toastMessage;

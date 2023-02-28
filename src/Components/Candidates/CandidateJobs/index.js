@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toastMessage from "../../../utils/toastMessage";
 import {
   collection,
   doc,
@@ -11,7 +12,7 @@ import { db } from "../../../FirebaseConfig";
 import JobsCard from "./JobsCard";
 import { v4 as uuidv4 } from "uuid";
 import { userContext } from "../../../Context/userContext";
-import toastMessage from "../../../utils/toastMessage";
+
 
 function Jobs() {
   const [state, dispatch] = useContext(userContext);
