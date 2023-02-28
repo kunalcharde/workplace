@@ -11,7 +11,7 @@ import React, { useContext, useEffect } from "react";
 import { db } from "../../../FirebaseConfig";
 import SideBar from "./SideBar";
 import TextArea from "./TextArea";
-import toastMessage from '../../../utils/toastMessage'
+
 import {v4 as uuidv4 } from "uuid";
 import { userContext } from "../../../Context/userContext";
 function CandidateConversation() {
@@ -76,7 +76,7 @@ function CandidateConversation() {
     }
     catch(err){
       console.log(err);
-      toastMessage( "Error in sending message", "error");
+     
     }
   };
 
