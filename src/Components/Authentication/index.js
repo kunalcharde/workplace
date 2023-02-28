@@ -9,8 +9,7 @@ import { userContext } from "../../Context/userContext";
 import {auth, db} from '../../FirebaseConfig'
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-
-
+import toastMessage from "../../utils/toastMessage";
  function Auth({type}){
   
   const navigate = useNavigate();
@@ -38,7 +37,8 @@ import { useNavigate } from "react-router-dom";
         navigate(`/${type}/profile`);
       }
       else{
-        alert(`This ID exist as ${userInformation.userType} but you are tring to signIn as ${type}`)
+        // alert(`This ID exist as ${userInformation.userType} but you are tring to signIn as ${type}`)
+        toastMessage(`This ID exist as ${userInformation.userType} but you are tring to signIn as ${type}`,"error")
       }
     }
      else {
