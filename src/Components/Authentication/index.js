@@ -9,7 +9,7 @@ import { userContext } from "../../Context/userContext";
 import {auth, db} from '../../FirebaseConfig'
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import toastMessage from "../../utils/toastMessage";
+import toastMessage from "../utils/toastMessage";
  function Auth({type}){
   
   const navigate = useNavigate();

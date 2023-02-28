@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import toastMessage from "../../../utils/toastMessage";
+import toastMessage from "../../utils/toastMessage";
 import {
   collection,
   doc,

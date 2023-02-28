@@ -10,7 +10,7 @@ import { db } from "../../../FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { userContext } from "../../../Context/userContext";
 import React, { useContext, useState } from "react";
-import toastMessage from "../../../utils/toastMessage";
+import toastMessage from "../../utils/toastMessage";
 import { useNavigate } from "react-router-dom";
 import { primaryRole, skills, experience } from "../../../Constants";
 import LinkIcon from "@mui/icons-material/Link";
