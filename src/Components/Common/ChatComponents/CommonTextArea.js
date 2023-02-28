@@ -6,7 +6,7 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import { Box } from "@mui/system";
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 function CommonTextArea({ selectedLastMessage, allConversations,sendMessage,userType,setMobileSidebaView }) {
-
+ 
   const [state, dispatch] = useContext(userContext);
   const [message, setMessage] = React.useState("");
   return (

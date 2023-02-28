@@ -11,8 +11,8 @@ import React, { useContext, useEffect } from "react";
 import { db } from "../../../FirebaseConfig";
 import SideBar from "./SideBar";
 import TextArea from "./TextArea";
-import toastMessage from '../../../utils/toastMessage'
-import {v4 as uuidv4 } from "uuid";
+import toastMessage from "../../../utils/toastMessage";
+import { v4 as uuidv4 } from "uuid";
 import { userContext } from "../../../Context/userContext";
 function EmployerConversation() {
   const [state, dispatch] = useContext(userContext);
@@ -21,7 +21,7 @@ function EmployerConversation() {
   const [selectedLastMessage, setSelectedLastMessage] = React.useState(null);
 
   const selectedLastMessagefun = (lastmessage) => {
-    console.log(lastmessage);
+    console.log(lastmessage, "last");
     setSelectedLastMessage(lastmessage);
     setMobileSidebaView(false);
   };
@@ -42,7 +42,7 @@ function EmployerConversation() {
         });
         allConversations.sort((a, b) => {
           return a.createdAt.toDate() - b.createdAt.toDate();
-        })
+        });
         setAllConversations(allConversations);
         console.log(allConversations);
       });
@@ -51,32 +51,31 @@ function EmployerConversation() {
   const sendMessage = async (message) => {
     // update the last message in the conversation collection
 
-    try{
-    const lastmessageId = selectedLastMessage.lastMessageId;
-    await setDoc(
-      doc(db, "last_messages", lastmessageId),
-      {
-        message: message,
-      },
-      {
-        merge: true,
-      }
-    );
+    try {
+      const lastmessageId = selectedLastMessage.lastMessageId;
+      await setDoc(
+        doc(db, "last_messages", lastmessageId),
+        {
+          message: message,
+        },
+        {
+          merge: true,
+        }
+      );
 
-    // add a new document to the conversation collection
-    const conversationKey = selectedLastMessage.conversationKey;
-      const convId= uuidv4()
-    await setDoc(doc(db, "conversations",convId), {
-      conversationKey: conversationKey,
-      message: message,
-      userId:state.user.email,
-      createdAt: new Date(),
-      convId
-    })
-    }
-    catch(err){
+      // add a new document to the conversation collection
+      const conversationKey = selectedLastMessage.conversationKey;
+      const convId = uuidv4();
+      await setDoc(doc(db, "conversations", convId), {
+        conversationKey: conversationKey,
+        message: message,
+        userId: state.user.email,
+        createdAt: new Date(),
+        convId,
+      });
+    } catch (err) {
       console.log(err);
-      toastMessage( "Error in sending message", "error");
+      toastMessage("Error in sending message", "error");
     }
   };
 
@@ -105,8 +104,8 @@ function EmployerConversation() {
       >
         <TextArea
           sendMessage={sendMessage}
-          setSelectedLastMessage={setSelectedLastMessage}
           allConversations={allConversations}
+          selectedLastMessage={selectedLastMessage}
           setMobileSidebaView={setMobileSidebaView}
         />
       </Grid>
@@ -114,9 +113,4 @@ function EmployerConversation() {
   );
 }
 
-
-
-
-
-
-export default EmployerConversation
+export default EmployerConversation;

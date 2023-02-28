@@ -13,6 +13,7 @@ import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../../FirebaseConfig";
 import { v4 as uuidv4 } from "uuid";
 import { userContext } from "../../../Context/userContext";
+import toastMessage from "../../../utils/toastMessage";
 const initialState={
      jobTitle: "",
     jobDescription: "",
@@ -80,7 +81,7 @@ function Form({ setMobileViewForm, selectedJob }) {
           companyLogo:state.userInfo.logo
         }
       );
-      alert("sucess");
+      toastMessage("Job Posted", "success");
     } catch (e) {
       console.log(e);
       alert(e);

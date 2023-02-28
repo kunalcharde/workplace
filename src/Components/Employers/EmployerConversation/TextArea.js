@@ -1,6 +1,7 @@
 import React from "react";
-import CommonTextArea from "../../Common/ChatComponents/CommonTextArea";
+import CommonTextArea from "../../Common/ChatComponents/CommonTextArea"
 function TextArea({ selectedLastMessage, allConversations, sendMessage,setMobileSidebaView }) {
+  console.log(allConversations,"Kuanl")
   return selectedLastMessage ? (
     <CommonTextArea
       sendMessage={sendMessage}
