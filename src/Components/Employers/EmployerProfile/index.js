@@ -2,10 +2,8 @@ import { Button, Grid } from '@mui/material';
 import React from 'react'
 import { useContext } from 'react'
 import { userContext } from "../../../Context/userContext";
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import "./style.css"
 import {useNavigate } from 'react-router-dom';
-
 const EmployerProfile = () => {
   const navigate = useNavigate()
   const [state, dispatch] = useContext(userContext);
