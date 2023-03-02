@@ -4,6 +4,7 @@ import { userContext } from "../../../Context/userContext";
 import { db } from "../../../FirebaseConfig";
 import CommonTable from "../../Common/CommonTable";
 
+ // intializing label data key and styles  in array
 const columns = [
   {
     label: "Company ",

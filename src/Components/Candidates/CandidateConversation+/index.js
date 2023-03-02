@@ -28,7 +28,7 @@ function CandidateConversation() {
   useEffect(() => {
     if (selectedLastMessage) {
       // call firestore conversation collection
-      // with conversationkey from lastmessage
+      // with conversationkey from last message
       // return all conversation doc where conversationkey is equal to conversationkey
       // add a onSnapshot listener to the collection
       const q = query(

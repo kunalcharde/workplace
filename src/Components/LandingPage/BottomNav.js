@@ -1,7 +1,5 @@
-import CommonNav from "../Common/CommonNav";
-import Logo from "../../assets/designlogo.png"
 import { Grid } from "@mui/material";
-import "./fotter.css"
+import "./fotter.css";
 
 function BottomNav() {
   const pages = [
@@ -11,30 +9,33 @@ function BottomNav() {
     },
     {
       name: "Jobs",
-      path: "employer/authentication",
+      path: "/",
     },
     {
       name: "Contact Us",
-      path: "candidate/authentication",
+      path: "/",
     },
     {
       name: "Terms",
-      path: "candidate/authentication",
+      path: "/",
     },
     {
       name: "Privacy Policy",
-      path: "candidate/authentication",
-    }
+      path: "/",
+    },
   ];
   return (
-    
-    // <CommonNav pages={pages} Logo={Logo} />
     <div className="footer-conatiner">
-      <Grid container sm={8} xs={10} className= "footer-bar">
-      {pages.map((page)=> {return <Grid item className="tab">{page.name}</Grid>} )}
-    </Grid>
+      <Grid container sm={8} xs={10} className="footer-bar">
+        {pages.map((page) => {
+          return (
+            <Grid item className="tab">
+              {page.name}
+            </Grid>
+          );
+        })}
+      </Grid>
     </div>
-    
   );
 }
 export default BottomNav;

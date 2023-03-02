@@ -16,7 +16,6 @@ function SideJobCard({ selectedJob, item, selectedJobfun }) {
        createdAt.toDate().toDateString()
         }
       </h4>
-      {/* <h4>{createdAt}</h4> */}
       <h1>{jobTitle}</h1>
       <h2>{jobLocation}</h2>
       <h3>{jobType}</h3>

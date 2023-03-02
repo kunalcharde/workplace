@@ -6,6 +6,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import "./style.css";
 const CandidateProfile = () => {
   const [state, dispatch] = useContext(userContext);
+  // Logout Function
   const logout = () => {
     dispatch({
       type: "LOGOUT",

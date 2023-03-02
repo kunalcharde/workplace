@@ -58,7 +58,7 @@ function Form({ setMobileViewForm, selectedJob }) {
     e.preventDefault();
     const jobId = selectedJob?selectedJob.jobId:uuidv4()
     try {
-      // call firebase firestore to sate this job in jobs collection
+      // call firebase firestore to set this job in jobs collection
       await setDoc(
         //doc refrence,
         doc(

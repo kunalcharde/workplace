@@ -62,7 +62,7 @@ const CandidateOnboarding = () => {
         userType: "candidate",
       });
       toastMessage("data saved successfully", "success");
-      // redirect to profile page
+      //Updating Context
       dispatch({
         type: "AddUSERINFO",
         payload: {
@@ -71,13 +71,14 @@ const CandidateOnboarding = () => {
           userType: "candidate",
         },
       });
+       // redirect to profile page
       navigate("/candidate/profile");
     } catch (err) {
       console.log(err);
       toastMessage("something went wrong", "error");
     }
   };
-
+  // Logout Function
   const logout=()=>{
     dispatch({
       type: "LOGOUT",
@@ -104,9 +105,9 @@ const CandidateOnboarding = () => {
                 size="Normal"
                 fullWidth
                 value={userData.name}
-                // onChange={(e) =>
-                //   setUserData({ ...userData, name: e.target.value })
-                // }
+                onChange={(e) =>
+                  setUserData({ ...userData, name: e.target.value })
+                }
               />
             </Grid>
             <Grid item xs={12} sm={6}>

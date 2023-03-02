@@ -15,6 +15,7 @@ import toastMessage from "../utils/toastMessage";
   const navigate = useNavigate();
   const [state, dispatch] = useContext(userContext);
   const redirectUser = async (email) => {
+    // fetch  collection data from firebase using getDoc
     const docref=doc(db,'userInfo',email)
     const userData= await getDoc(docref)
     let userInformation=null
@@ -54,13 +55,12 @@ import toastMessage from "../utils/toastMessage";
   };
   const singIn = () => {
     const provider = new GoogleAuthProvider();
-
+    // signInWithPopup retuns a promise
     signInWithPopup(auth, provider)
       .then((result) => {
        console.log(result,'result')
         const user = result.user;
         const { displayName, email, photoURL,uid } = user;
-
         dispatch({
           type: "LOGIN",
           payload: {
@@ -71,7 +71,6 @@ import toastMessage from "../utils/toastMessage";
           }
         })
         redirectUser(email);
-
       })
       .catch((error) => {
         // Handle Errors here.

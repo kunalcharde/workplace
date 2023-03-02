@@ -43,7 +43,7 @@ function Jobs() {
     //1 get all the applications from applications collection where candidate id is equal to current user id
     //2 check if any of the application has the same job id as the job id of the job that user is applying for
     //3 if yes then show a toast message saying you have already applied for this job
-    // else apply for the job
+    // else Apply for the job
 
     const q = query(
       collection(db, "applications"),

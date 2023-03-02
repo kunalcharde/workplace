@@ -5,8 +5,8 @@ import "./job.css";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 import JobProfile from "./JobProfile";
-function JobsCard({ job,applyonJob }) {
-  console.log(job,"job")
+function JobsCard({ job, applyonJob }) {
+  // console.log(job,"job")
   return (
     <div className="card-container">
       <Grid
