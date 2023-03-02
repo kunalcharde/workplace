@@ -46,7 +46,7 @@ function JobsCard({ job,applyonJob }) {
           {moment(job.createdAt.toDate()).startOf("day").fromNow()}
         </Grid>
         <Grid xs={6} md={2} >
-          <JobProfile/>
+          <JobProfile job={job}/>
         </Grid>
         <Grid xs={6} md={2} >
           <button

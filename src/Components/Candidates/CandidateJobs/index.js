@@ -17,6 +17,7 @@ import { userContext } from "../../../Context/userContext";
 function Jobs() {
   const [state, dispatch] = useContext(userContext);
   const [Alljobs, setAlljobs] = useState(null);
+  const [companyDetails, setCompanyDetails] = useState(null);
   const fetchAllJobs = async () => {
     // fetch all jobs from jobs collection
     const q = query(collection(db, "jobs"));
