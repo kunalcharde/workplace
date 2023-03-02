@@ -20,21 +20,21 @@ const EmployerOnboarding = () => {
   const navigate = useNavigate();
   const [state, dispatch] = useContext(userContext);
   const [companyData, setcompanyData] = useState({
-    companyName: "",
-    name: "",
-    role: "",
-    email: "",
-    phone: "",
-    industryType: "",
-    companySize: "",
-    location: "",
-    twitter: "",
-    facebook: "",
-    website: "",
-    linkedin: "",
-    companyTagline: "",
-    companybio: "",
-    logo: "",
+    companyName: state.userInfo?.companyName,
+    name: state.userInfo?.name,
+    role: state.userInfo?.role,
+    email: state.userInfo?.email,
+    phone: state.userInfo?.phone,
+    industryType: state.userInfo?.industryType,
+    companySize: state.userInfo?.companySize,
+    location: state.userInfo?.location,
+    twitter: state.userInfo?.twitter,
+    facebook: state.userInfo?.facebook,
+    website: state.userInfo?.website,
+    linkedin: state.userInfo?.linkedin,
+    companyTagline: state.userInfo?.companyTagline,
+    companybio: state.userInfo?.companybio,
+    logo: state.userInfo?.logo,
   });
 
   const submitData = async (e) => {
@@ -68,11 +68,17 @@ const EmployerOnboarding = () => {
     }
   };
 
+  const logout=()=>{
+    dispatch({
+      type: "LOGOUT",
+    });
+  }
+
   return (
     <div className="candidate-onboarding-container">
       <form onSubmit={submitData}>
         <div className="logout-btn">
-          <Button variant="outlined" sx={{ margin: "2rem 2rem 0 0" }}>
+          <Button variant="outlined" sx={{ margin: "2rem 2rem 0 0" }} onClick={logout}>
             Logout
           </Button>
         </div>
@@ -87,6 +93,7 @@ const EmployerOnboarding = () => {
                 required
                 size="Normal"
                 fullWidth
+                value={companyData.companyName}
                 onChange={(e) =>
                   setcompanyData({
                     ...companyData,
@@ -105,6 +112,7 @@ const EmployerOnboarding = () => {
                   required
                   size="Normal"
                   fullWidth
+                  value={companyData.phone}
                   onChange={(e) =>
                     setcompanyData({ ...companyData, phone: e.target.value })
                   }
@@ -120,6 +128,7 @@ const EmployerOnboarding = () => {
                 required
                 size="Normal"
                 fullWidth
+                value={companyData.email}
                 onChange={(e) =>
                   setcompanyData({ ...companyData, email: e.target.value })
                 }
@@ -130,6 +139,7 @@ const EmployerOnboarding = () => {
                 disablePortal
                 id="combo-box-demo"
                 options={industryType}
+                value={companyData.industryType}
                 // sx={{ width: 300 }}
                 onChange={(e, newValue) =>
                   setcompanyData({ ...companyData, industryType: newValue })
@@ -149,6 +159,7 @@ const EmployerOnboarding = () => {
                 disablePortal
                 id="combo-box-demo"
                 options={companySize}
+                value={companyData.companySize}
                 // sx={{ width: 300 }}
                 onChange={(e, newValue) =>
                   setcompanyData({ ...companyData, companySize: newValue })
@@ -171,6 +182,7 @@ const EmployerOnboarding = () => {
                 variant="outlined"
                 required
                 size="Normal"
+                value={companyData.name}
                 fullWidth
                 onChange={(e) =>
                   setcompanyData({ ...companyData, name: e.target.value })
@@ -184,6 +196,7 @@ const EmployerOnboarding = () => {
                 disable
                 variant="outlined"
                 required
+                value={companyData.role}
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
@@ -200,6 +213,7 @@ const EmployerOnboarding = () => {
                 required
                 size="Normal"
                 fullWidth
+                value={companyData.location}
                 onChange={(e) =>
                   setcompanyData({ ...companyData, location: e.target.value })
                 }
@@ -213,6 +227,7 @@ const EmployerOnboarding = () => {
                 required
                 size="Normal"
                 fullWidth
+                value={companyData.website}
                 onChange={(e) =>
                   setcompanyData({ ...companyData, website: e.target.value })
                 }
@@ -232,6 +247,7 @@ const EmployerOnboarding = () => {
                 variant="outlined"
                 required
                 size="Normal"
+                value={companyData.linkedin}
                 fullWidth
                 onChange={(e) =>
                   setcompanyData({ ...companyData, linkedin: e.target.value })
@@ -250,8 +266,8 @@ const EmployerOnboarding = () => {
                 id="outlined-basic"
                 label="Facebook"
                 variant="outlined"
-                required
                 size="Normal"
+                value={companyData.facebook}
                 fullWidth
                 onChange={(e) =>
                   setcompanyData({ ...companyData, facebook: e.target.value })
@@ -270,7 +286,7 @@ const EmployerOnboarding = () => {
                 id="outlined-basic"
                 label="Twitter"
                 variant="outlined"
-                required
+                value={companyData.twitter}
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
@@ -292,6 +308,7 @@ const EmployerOnboarding = () => {
                 disable
                 variant="outlined"
                 required
+                value={companyData.companyTagline}
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
@@ -309,6 +326,7 @@ const EmployerOnboarding = () => {
                 multiline
                 minRows={4}
                 fullWidth
+                value={companyData.companybio}
                 onChange={(e) =>
                   setcompanyData({ ...companyData, companybio: e.target.value })
                 }

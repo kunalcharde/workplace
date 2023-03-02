@@ -23,15 +23,15 @@ const CandidateOnboarding = () => {
   const [userData, setUserData] = useState({
     name: state.user.displayName,
     email: state.user.email,
-    phone: "",
-    location: "",
-    experience: "",
-    primaryRole: "",
-    portfolio: "",
-    linkedin: "",
+    phone: state.userInfo?.phone,
+    location: state.userInfo?.location,
+    experience: state.userInfo?.experience,
+    primaryRole: state.userInfo?.primaryRole,
+    portfolio: state.userInfo?.portfolio,
+    linkedin: state.userInfo?.linkedin,
     skills: [],
-    bio: "",
-    resume: "",
+    bio: state.userInfo?.bio,
+    resume: state.userInfo?.resume,
   });
 
   const setSkills = (skill) => {
@@ -117,6 +117,7 @@ const CandidateOnboarding = () => {
                   label="Phone"
                   variant="outlined"
                   required
+                  value={userData.phone}
                   size="Normal"
                   fullWidth
                   onChange={(e) =>
@@ -147,6 +148,7 @@ const CandidateOnboarding = () => {
                 disable
                 variant="outlined"
                 required
+                value={userData.location}
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
@@ -158,6 +160,7 @@ const CandidateOnboarding = () => {
               <Autocomplete
                 disablePortal
                 id="combo-box-demo"
+                value={userData.experience}
                 options={experience}
                 // sx={{ width: 300 }}
                 onChange={(e, newValue) =>
@@ -178,6 +181,7 @@ const CandidateOnboarding = () => {
                 disablePortal
                 id="combo-box-demo"
                 options={primaryRole}
+                value={userData.primaryRole}
                 // sx={{ width: 300 }}
                 onChange={(e, newValue) =>
                   setUserData({ ...userData, primaryRole: newValue })
@@ -197,6 +201,7 @@ const CandidateOnboarding = () => {
                 id="outlined-basic"
                 label="Portfolio / Github"
                 variant="outlined"
+                value={userData.portfolio}
                 required
                 size="Normal"
                 fullWidth
@@ -218,6 +223,7 @@ const CandidateOnboarding = () => {
                 label="Linkdin"
                 variant="outlined"
                 required
+                value={userData.linkedin}
                 size="Normal"
                 fullWidth
                 onChange={(e) =>
@@ -236,6 +242,7 @@ const CandidateOnboarding = () => {
               <Autocomplete
                 disablePortal
                 id="combo-box-demo"
+                value={userData.skills}
                 options={skills}
                 onChange={(event, newValue) => {
                   setSkills(newValue);
@@ -268,6 +275,7 @@ const CandidateOnboarding = () => {
                 id="outlined-multiline-flexible"
                 label="Bio"
                 multiline
+                value={userData.bio}
                 minRows={4}
                 fullWidth
                 onChange={(e) =>

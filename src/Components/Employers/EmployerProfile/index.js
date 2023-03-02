@@ -4,15 +4,19 @@ import { useContext } from 'react'
 import { userContext } from "../../../Context/userContext";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import "./style.css"
+import {useNavigate } from 'react-router-dom';
 
 const EmployerProfile = () => {
+  const navigate = useNavigate()
   const [state, dispatch] = useContext(userContext);
   const logout=()=>{
     dispatch({
       type: "LOGOUT",
     });
   }
-
+const handleEdit=()=>{
+  navigate("/employer/onboarding")
+}
   return (
     <div className="container">
        <div className="profile-container">
@@ -21,11 +25,11 @@ const EmployerProfile = () => {
             <img  src={state.userInfo.logo} alt="logo" width="50px" height="50px"/>
           </Grid>
           <Grid item sm={6} xs={4}>
-            <div>{state.userInfo.companyName}</div>
-            <div>{state.userInfo.companyTagline}</div>
+            <div className='companyname' >{state.userInfo.companyName}</div>
+            <div className='companytag' >{state.userInfo.companyTagline}</div>
           </Grid>
           <Grid item sm={4} xs={6} >
-            <Button variant="outlined" size="small" sx={{gap: "2em",marginRight:"1rem"}}>Edit</Button>
+            <Button variant="outlined" size="small" sx={{gap: "2em",marginRight:"1rem"}} onClick={handleEdit}>Edit</Button>
             <Button variant="outlined" size="small" onClick={logout}>Logout</Button>
           </Grid>
         </Grid>

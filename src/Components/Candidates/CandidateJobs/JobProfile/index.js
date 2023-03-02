@@ -43,7 +43,7 @@ function BootstrapDialogTitle(DialogTitleProps) {
   );
 }
 
-export default function CustomizedDialogs({ job }) {
+export default function CustomizedDialogs({ job ,applyonJob}) {
   console.log("Job Profile", job);
   const [open, setOpen] = React.useState(false);
 
@@ -73,13 +73,13 @@ export default function CustomizedDialogs({ job }) {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            {/* <div className='jobp-title'><h4> Job Title :</h4> <p>{job.jobTitle}</p></div>    */}
+            
             <Grid conatiner xs={12}>
               <Grid
                 item
-                sm={5}
-                md={5}
-                sx={{ display: "flex", justifyContent: "space-between" }}
+                sm={12}
+                md={12}
+                sx={{ display: "flex" }}
               >
                 <h4>Job Title :</h4>
                 <p>{job.jobTitle}</p>
@@ -107,8 +107,8 @@ export default function CustomizedDialogs({ job }) {
                 {<p>{job.salaryRange.currency} {job.salaryRange.min}- {job.salaryRange.max} CTC</p>}
               </Grid>
               <Grid item sm={6} md={6}>
-                <h4>Company Type</h4>
-                <p>Hybrid</p>
+                <h4>Job Type</h4>
+                <p>{job.jobType}</p>
               </Grid>
             </Grid>
           </Typography>
@@ -128,22 +128,11 @@ export default function CustomizedDialogs({ job }) {
               </Grid>
             </Grid>
           </Typography>
-          <Typography gutterBottom>
-            <Grid container xs={12} sm={12}>
-              <Grid item sm={6} md={6}>
-                <h4>Linkedin</h4>
-                <p>
-                  <a href="https://www.linkedin.com" alt="Linkdin">
-                    https://www.linkedin.com
-                  </a>{" "}
-                </p>
-              </Grid>
-            </Grid>
-          </Typography>
+          
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Close
+          <Button variant="outlined" autoFocus onClick={()=>applyonJob(job)}>
+            Apply
           </Button>
         </DialogActions>
       </BootstrapDialog>

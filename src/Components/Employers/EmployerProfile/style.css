@@ -19,6 +19,13 @@
 h5{
     margin: 0;
     margin-top: 1rem;
-    font-size: clamp(16px ,1.3vw, 20px);
+    font-size: clamp(14px ,1.2vw, 16px);
     font-weight: 600;
+}
+.companyname{
+    font-size: clamp(20px ,1.6vw, 24px);
+    font-weight: 600;
+}
+p{
+    font-size: clamp(10px ,1.6vw, 14px);
 }
