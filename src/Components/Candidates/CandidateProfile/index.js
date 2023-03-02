@@ -14,7 +14,7 @@ const CandidateProfile = () => {
   };
   // handleEdit  function use to edit the information that are fill in onboarding Form
   const handleEdit=()=>{
-    navigate("/employer/onboarding")
+    navigate("/candidate/onboarding")
   }
   return (
     <div className="container1">
