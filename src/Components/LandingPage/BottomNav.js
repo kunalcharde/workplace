@@ -1,5 +1,8 @@
 import CommonNav from "../Common/CommonNav";
 import Logo from "../../assets/designlogo.png"
+import { Grid } from "@mui/material";
+import "./fotter.css"
+
 function BottomNav() {
   const pages = [
     {
@@ -24,7 +27,14 @@ function BottomNav() {
     }
   ];
   return (
-    <CommonNav pages={pages} Logo={Logo} />
+    
+    // <CommonNav pages={pages} Logo={Logo} />
+    <div className="footer-conatiner">
+      <Grid container sm={8} xs={10} className= "footer-bar">
+      {pages.map((page)=> {return <Grid item className="tab">{page.name}</Grid>} )}
+    </Grid>
+    </div>
+    
   );
 }
 export default BottomNav;
