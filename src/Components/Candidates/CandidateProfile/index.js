@@ -12,15 +12,19 @@ const CandidateProfile = () => {
       type: "LOGOUT",
     });
   };
+  // handleEdit  function use to edit the information that are fill in onboarding Form
+  const handleEdit=()=>{
+    navigate("/employer/onboarding")
+  }
   return (
     <div className="container1">
       <div className="profile-container">
         <div className="button-container">
+        <Button variant="outlined" size="small" onClick={handleEdit}>
+            Edit
+          </Button>{" "}
           <Button variant="outlined" size="small" onClick={logout}>
             Logout
-          </Button>{" "}
-          <Button variant="outlined" size="small">
-            Edit
           </Button>
         </div>
         <div className="header">
