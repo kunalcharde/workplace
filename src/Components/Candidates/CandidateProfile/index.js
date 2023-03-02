@@ -4,8 +4,10 @@ import { useContext } from "react";
 import { userContext } from "../../../Context/userContext";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 const CandidateProfile = () => {
   const [state, dispatch] = useContext(userContext);
+  const navigate = useNavigate()
   // Logout Function
   const logout = () => {
     dispatch({
