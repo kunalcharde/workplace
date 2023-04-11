@@ -132,7 +132,7 @@ const navigate=useNavigate();
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <ToggleButton />
             </Tooltip>
@@ -158,7 +158,7 @@ const navigate=useNavigate();
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
