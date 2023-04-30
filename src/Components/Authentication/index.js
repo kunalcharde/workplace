@@ -1,4 +1,3 @@
-import { Button, Grid, Pagination } from "@mui/material";
 import React from "react";
 import './auth.css';
 import authimg from "../../assets/authimg.png";
@@ -10,6 +9,7 @@ import {auth, db} from '../../FirebaseConfig'
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import toastMessage from "../utils/toastMessage";
+import { Button, Grid, TextField } from "@mui/material";
  function Auth({type}){
   
   const navigate = useNavigate();
@@ -73,25 +73,32 @@ import toastMessage from "../utils/toastMessage";
         redirectUser(email);
       })
       .catch((error) => {
-        // Handle Errors here.
+        // Handling Errors here.
        console.log(error,'error')
       });
   };
   return (
-    <Grid container>
-      <Grid className="auth-btn-container" item xs={12} md={8}>
-        <h1>Login as {type.toUpperCase()}</h1>
-         <h2>Sign in With Google</h2>
+    <div className="container-auth">
+    <Grid container gap={2} sx={{display:'flex',alignItems:"center",justifyContent:"center",border:"2px solid black",borderRadius:"15px",padding: "15px"}} xs={8} md={4}>
+      <Grid className="auth-btn-container" item xs={8} md={8}>
+      <h1>Login as {type.toUpperCase()}</h1>
+      </Grid>
+      <Grid className="auth-btn-container" item xs={10} md={8}>
+        <TextField id="outlined-basic" label="Enter Email" variant="outlined" fullWidth />
+      </Grid>
+      <Grid className="auth-btn-container" item xs={10} md={8}>
+        <TextField id="outlined-basic" label="Enter Password" variant="outlined" fullWidth/>
+      </Grid>
+      <Grid className="auth-btn-container" item xs={10} md={8}>
+        <Button variant="outlined" onClick={()=>{toastMessage("Under Constrction  Try To Sign in With Google","error")}}>Sign in</Button>
+      </Grid>
+      <Grid className="auth-btn-container" item xs={8} md={4}>
         <div onClick={singIn} className="auth-btn">
         <img src={googlebtn} alt="googlebtn" />
         </div>
       </Grid>
-      <Grid item xs={12} md={4}>
-        <div className="auth-img">
-          <img width="100%" src={authimg} alt="authimg"  />
-        </div>
-      </Grid>
     </Grid>
+    </div>
   );
 }
 
